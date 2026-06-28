@@ -1,0 +1,8 @@
+# Raw media files not used on the site
+*.MOV
+*.HEIC
+*.HEIF
+VID*
+*.HEIC
+README.txt
+project.json

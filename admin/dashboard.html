@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Tunde Visuals Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <nav class="admin-nav">
+    <div class="admin-nav-inner">
+      <div class="admin-brand">
+        <img src="../LOGO%20PNG.PNG" alt="TV" class="admin-brand-img">
+        <span>Admin Panel</span>
+      </div>
+      <div class="admin-nav-links">
+        <a href="#" class="nav-tab active" data-tab="dashboard">Dashboard</a>
+        <a href="#" class="nav-tab" data-tab="gallery">Gallery</a>
+        <a href="#" class="nav-tab" data-tab="content">Content</a>
+        <a href="#" class="nav-tab" data-tab="services-tab">Services</a>
+        <a href="#" class="nav-tab" data-tab="reviews-tab">Reviews</a>
+      </div>
+      <a href="#" class="logout-btn" id="logoutBtn">Logout</a>
+    </div>
+  </nav>
+
+  <div class="admin-container">
+
+    <!-- DASHBOARD TAB -->
+    <div class="admin-tab active" id="tab-dashboard">
+      <h2>Dashboard</h2>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-num" id="statGallery">0</div><div class="stat-label">Gallery Images</div></div>
+        <div class="stat-card"><div class="stat-num" id="statServices">5</div><div class="stat-label">Services</div></div>
+        <div class="stat-card"><div class="stat-num" id="statReviews">3</div><div class="stat-label">Reviews</div></div>
+        <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Pages</div></div>
+      </div>
+      <div class="admin-card">
+        <h3>Quick Links</h3>
+        <div class="quick-links">
+          <a href="../index.html" target="_blank" class="quick-link">View Site</a>
+          <a href="../gallery.html" target="_blank" class="quick-link">View Gallery</a>
+          <a href="../contact.html" target="_blank" class="quick-link">View Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY TAB -->
+    <div class="admin-tab" id="tab-gallery">
+      <h2>Gallery Management</h2>
+      <div class="admin-card">
+        <h3>Add Image</h3>
+        <div class="form-group">
+          <label for="galleryCategory">Category</label>
+          <select id="galleryCategory">
+            <option value="albumart">Album Art</option>
+            <option value="birthdays">Birthdays</option>
+            <option value="couples">Couples</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Upload Image</label>
+          <input type="file" id="galleryFile" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label>Or paste image URL</label>
+          <input type="url" id="galleryUrl" placeholder="https://example.com/image.jpg">
+        </div>
+        <button class="admin-btn" id="addGalleryBtn">Add to Gallery</button>
+        <div class="form-status" id="galleryStatus"></div>
+      </div>
+      <div class="admin-card">
+        <h3>Current Gallery Images</h3>
+        <div class="admin-gallery-grid" id="adminGalleryGrid"></div>
+      </div>
+      <div class="admin-card">
+        <h3>Reset to Default</h3>
+        <p style="font-size:0.85rem;color:#888;margin-bottom:0.8rem;">Restore the original gallery images (only removes custom additions).</p>
+        <button class="admin-btn danger" id="resetGalleryBtn">Reset Gallery</button>
+      </div>
+    </div>
+
+    <!-- CONTENT TAB -->
+    <div class="admin-tab" id="tab-content">
+      <h2>Content Editor</h2>
+      <div class="admin-card">
+        <h3>Homepage Hero</h3>
+        <div class="form-group">
+          <label>Hero Subtitle</label>
+          <input type="text" id="content-heroSub" value="Premium cinematography &amp; photography services in Lagos &amp; Ogun State">
+        </div>
+      </div>
+      <div class="admin-card">
+        <h3>About Section</h3>
+        <div class="form-group">
+          <label>About Text (Paragraph 1)</label>
+          <textarea id="content-about1" rows="3">Tunde Visuals is a full-service photography and videography company based in Nigeria, dedicated to producing cinematic content that resonates. With years of experience across weddings, music videos, commercial projects, and portrait sessions, we combine technical mastery with an artist's eye to create visuals that stand out.</textarea>
+        </div>
+        <div class="form-group">
+          <label>About Text (Paragraph 2)</label>
+          <textarea id="content-about2" rows="3">Every project is approached with intentionality — from lighting and composition to color grading and sound design. We believe the best work comes from genuine connection and collaboration, which is why we take the time to understand your story before we start shooting.</textarea>
+        </div>
+      </div>
+      <button class="admin-btn" id="saveContentBtn">Save Content</button>
+      <div class="form-status" id="contentStatus"></div>
+    </div>
+
+    <!-- SERVICES TAB -->
+    <div class="admin-tab" id="tab-services-tab">
+      <h2>Services Editor</h2>
+      <p style="margin-bottom:1.5rem;color:#888;">Edit service card titles and descriptions.</p>
+      <div id="servicesEditor"></div>
+      <button class="admin-btn" id="saveServicesBtn">Save Services</button>
+      <div class="form-status" id="servicesStatus"></div>
+    </div>
+
+    <!-- REVIEWS TAB -->
+    <div class="admin-tab" id="tab-reviews-tab">
+      <h2>Reviews Editor</h2>
+      <p style="margin-bottom:1.5rem;color:#888;">Edit client testimonials. Click the X to remove a review.</p>
+      <div id="reviewsEditor"></div>
+      <button class="admin-btn" id="addReviewBtn">Add Review</button>
+      <button class="admin-btn" id="saveReviewsBtn" style="margin-left:0.5rem;">Save Reviews</button>
+      <div class="form-status" id="reviewsStatus"></div>
+    </div>
+
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
