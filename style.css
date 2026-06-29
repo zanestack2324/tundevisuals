@@ -1405,7 +1405,7 @@ main > section > .section { position: relative; z-index: 2; }
   .nav-row { position: relative; display: flex; align-items: center; justify-content: space-between; width: 100%; }
 
   .logo-img { width: 110px; }
-  .hamburger { display: flex; }
+  .hamburger { display: flex; z-index: 1000; }
 
   .navbar { flex-direction: column; clip-path: none; }
 
