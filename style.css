@@ -190,7 +190,7 @@ body {
 
 .hero-overlay {
   position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-  background: linear-gradient(180deg, rgba(13,6,4,0.3) 0%, rgba(13,6,4,0.5) 50%, rgba(13,6,4,0.8) 100%);
+  background: transparent;
   z-index: -1;
   transform: translateZ(0);
 }
@@ -250,7 +250,7 @@ img[loading="lazy"] { content-visibility: auto; }
   padding: 0.3rem 2rem 1rem; z-index: 1000;
   transition: background 0.3s ease, padding 0.3s ease;
   position: relative;
-  background: linear-gradient(180deg, rgba(26,15,10,0.98) 0%, rgba(26,15,10,0.92) 100%);
+  background: transparent;
   clip-path: polygon(
     0% 0%, 100% 0%, 100% calc(100% - 8px), calc(100% - 8px) 100%,
     8px 100%, 0% calc(100% - 8px)
@@ -281,7 +281,12 @@ img[loading="lazy"] { content-visibility: auto; }
 .navbar.scrolled {
   padding: 0.3rem 2rem 0.8rem;
   position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-  background: linear-gradient(180deg, rgba(26,15,10,0.98) 0%, rgba(26,15,10,0.95) 100%);
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
 }
 
 .nav-row { display: flex; align-items: center; justify-content: space-between; width: 100%; }
@@ -383,28 +388,6 @@ img[loading="lazy"] { content-visibility: auto; }
   flex: 1; display: flex; flex-direction: column; align-items: center;
   justify-content: center; text-align: center; padding: 2rem;
   position: relative;
-}
-
-.hero-content::before {
-  content: '';
-  position: absolute;
-  top: -6px; left: -6px; right: -6px; bottom: -6px;
-  background: linear-gradient(135deg,
-    rgba(196,148,106,0.1) 0%, transparent 20%,
-    transparent 80%, rgba(196,148,106,0.08) 100%
-  );
-  clip-path: polygon(
-    0% 6px, 3px 3px, 8px 0%, 16px 2px, 24px 0%, 32px 4px, 40px 0%, 48px 2px,
-    56px 0%, 64px 3px, 72px 0%, 80px 2px, 88px 0%, calc(100% - 10px) 2px, calc(100% - 5px) 5px, 100% 8px,
-    100% 16px, calc(100% - 2px) 26px, 100% 36px, calc(100% - 3px) 46px, 100% 56px,
-    calc(100% - 2px) 66px, 100% 76px, calc(100% - 4px) 86px, 100% calc(100% - 16px),
-    calc(100% - 6px) calc(100% - 8px), calc(100% - 10px) 100%, calc(100% - 18px) calc(100% - 3px),
-    calc(100% - 28px) 100%, calc(100% - 38px) calc(100% - 2px), calc(100% - 48px) 100%,
-    calc(100% - 58px) calc(100% - 4px), calc(100% - 68px) 100%, 50px calc(100% - 2px),
-    40px 100%, 28px calc(100% - 4px), 18px 100%, 10px calc(100% - 2px), 4px calc(100% - 5px), 0% calc(100% - 8px)
-  );
-  pointer-events: none;
-  z-index: -1;
 }
 
 .hero-tagline {
@@ -943,8 +926,8 @@ main > section > .section { position: relative; z-index: 2; }
 }
 
 .testimonial-card blockquote {
-  font-size: 1.05rem; font-weight: 300; font-style: italic;
-  line-height: 1.8; color: var(--accent);
+  font-size: 1.05rem; font-weight: 400; font-style: italic;
+  line-height: 1.8; color: var(--text-dark);
 }
 
 .testimonial-card .author {
@@ -958,7 +941,7 @@ main > section > .section { position: relative; z-index: 2; }
 }
 
 .testimonial-card .author-role {
-  font-size: 0.7rem; letter-spacing: 2px; color: var(--accent); opacity: 0.6;
+  font-size: 0.7rem; letter-spacing: 2px; color: var(--text-dark); opacity: 0.7;
 }
 
 .testimonial-dots {

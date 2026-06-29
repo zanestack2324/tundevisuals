@@ -92,11 +92,19 @@
   var navbar = $('navbar');
   if (navbar) {
     var tickingNav = false;
+    var lastScrollY = 0;
     window.addEventListener('scroll', function() {
       if (!tickingNav) {
         tickingNav = true;
         requestAnimationFrame(function() {
-          navbar.classList.toggle('scrolled', (window.pageYOffset || document.documentElement.scrollTop) > 60);
+          var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+          navbar.classList.toggle('scrolled', scrollY > 60);
+          if (scrollY > 120) {
+            navbar.classList.toggle('hidden', scrollY > lastScrollY);
+          } else {
+            navbar.classList.remove('hidden');
+          }
+          lastScrollY = scrollY;
           tickingNav = false;
         });
       }
